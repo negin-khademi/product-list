@@ -1,1 +1,49 @@
-<p>dialog works!</p>
+<p-dialog [modal]="true" [(visible)]="visible" class="my-8" [style]="{'width':'25rem'}">
+  <div class="w-full my-6">
+    <img src="images/icon-order-confirmed.svg" alt="order confirmed" class="w-8 mb-4">
+    <span class="font-bold text-2xl text-black">Order Confirmed</span>
+    <p class="text-xs text-custom_rose-400 my-1">We hope you enjoy your food!</p>
+  </div>
+  <div class=" gap-4 mb-4 bg-custom_rose-50 pt-4">
+    <div *ngFor="let recipe of selected()" class="self-start ">
+      <div class="grid grid-cols-6 ">
+        <div class="col-span-5 flex">
+          <div class="ml-4 mr-2">
+            <img [src]="recipe.image.thumbnail" alt="" class="w-16 h-16 ">
+          </div>
+          <div>
+            <span class="font-semibold">
+              {{ recipe.name }}
+            </span>
+            <br />
+            <div>
+              <span class="text-custom_red-500 font-semibold mr-4">
+                {{ recipe.quantity }}x
+              </span>
+              <span class="text-custom_rose-400 mr-2">
+                <span class="text-xs">&#64;</span>${{ recipe.price }}
+              </span>
+
+            </div>
+          </div>
+        </div>
+        <div class="col-span-1 flex items-center justify-end mr-2 ">
+          <span class="text-custom_rose-400 font-semibold text-base">
+            ${{ ((recipe.quantity ?? 0) * recipe.price) | number : '1.2-2' }}
+          </span>
+        </div>
+      </div>
+      <hr class="w-full my-3" />
+    </div>
+    <div class="flex items-center justify-between w-full my-4 pb-4 px-4">
+      <p>Order Total</p>
+      <span class="text-2xl font-bold mr-2">${{recipeService.totalPriceInCart() | number : '1.2-2' }}</span>
+    </div>
+  </div>
+
+  <div class="flex justify-end gap-2">
+    <button (click)="onNewOrder()" class="w-full bg-custom_red-500 p-3 rounded-full text-white mb-4 md:mb-0 mt-6">Start
+      New
+      Order</button>
+  </div>
+</p-dialog>
