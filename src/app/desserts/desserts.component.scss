@@ -1,0 +1,32 @@
+/* Hide desktop and tablet image on mobile */
+.desktop-image,
+.tablet-image {
+	display: none;
+}
+
+/* Show tablet image on tablet */
+@media (min-width: 768px) {
+	.mobile-image,
+	.desktop-image {
+		display: none;
+	}
+	.tablet-image {
+		display: block;
+	}
+}
+/* Show desktop image on desktop */
+@media (min-width: 1024px) {
+	.mobile-image,
+	.tablet-image {
+		display: none;
+	}
+	.desktop-image {
+		display: block;
+	}
+}
+.text-custom_rose-500 {
+	color: hsl(14, 65%, 9%);
+}
+.filter-white {
+	filter: invert(100%) grayscale(100%) brightness(200%);
+}
