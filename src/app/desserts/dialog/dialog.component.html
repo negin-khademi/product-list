@@ -1,7 +1,7 @@
-<p-dialog [modal]="true" [(visible)]="visible" class="my-8" [style]="{'width':'25rem'}">
+<p-dialog [modal]="true" [(visible)]="visible" class="my-8" [style]="{'width':'25rem' , 'background':'white'}">
   <div class="w-full my-6">
     <img src="images/icon-order-confirmed.svg" alt="order confirmed" class="w-8 mb-4">
-    <span class="font-bold text-2xl text-black">Order Confirmed</span>
+    <span class="font-bold text-2xl text-black ">Order Confirmed</span>
     <p class="text-xs text-custom_rose-400 my-1">We hope you enjoy your food!</p>
   </div>
   <div class=" gap-4 mb-4 bg-custom_rose-50 pt-4">
@@ -12,7 +12,7 @@
             <img [src]="recipe.image.thumbnail" alt="" class="w-16 h-16 ">
           </div>
           <div>
-            <span class="font-semibold">
+            <span class="font-semibold dark:text-black">
               {{ recipe.name }}
             </span>
             <br />
@@ -36,8 +36,9 @@
       <hr class="w-full my-3" />
     </div>
     <div class="flex items-center justify-between w-full my-4 pb-4 px-4">
-      <p>Order Total</p>
-      <span class="text-2xl font-bold mr-2">${{recipeService.totalPriceInCart() | number : '1.2-2' }}</span>
+      <p class="dark:text-black">Order Total</p>
+      <span class="text-2xl font-bold mr-2 dark:text-black">${{recipeService.totalPriceInCart() | number : '1.2-2'
+        }}</span>
     </div>
   </div>
 
