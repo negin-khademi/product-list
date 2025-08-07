@@ -1,7 +1,7 @@
 <div *ngIf="recipes.length > 0">
   <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-6 md:mb-4 md:py-[4%]">
     <div class="col-span-1 md:col-span-2 lg:col-span-4">
-      <h1 class="mt-4 font-bold text-4xl">
+      <h1 class="mt-4 font-bold text-4xl dark:text-black">
         Desserts
       </h1>
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 md:gap-3 gap-4">
@@ -21,7 +21,7 @@
               (click)="changeBillStatus(recipe)">
               @if(!recipe.inBill){
               <img src="images/icon-add-to-cart.svg" alt="Add to Cart" class="mr-2">
-              <span class="text-base lg:text-sm ">
+              <span class="text-base lg:text-sm dark:text-custom_red-500 ">
                 Add to Cart
               </span>}
               @if(recipe.inBill){
@@ -46,7 +46,7 @@
           </div>
           <div class="content mt-8 flex flex-col justify-start">
             <span class="text-custom_rose-400">{{recipe.category}}</span>
-            <h1 class="text-custom_rose-500 font-medium">{{recipe.name}}</h1>
+            <h1 class="text-custom_rose-500 font-medium dark:text-custom_rose-500">{{recipe.name}}</h1>
             <p class="text-custom_red-500">{{recipe.price}}$</p>
           </div>
         </div>
@@ -56,7 +56,7 @@
     <div class="md:col-span-1 lg:col-span-2 mt-6 md:mt-0">
       <div class="bg-white flex flex-col items-center justify-center md:ml-3 p-3 md:p-6 lg:p-8">
         @if(recipeService.isCartEmpty()){
-        <p class="self-start text-custom_red-500 font-bold text-xl">Your Cart (0)</p>
+        <p class="self-start text-custom_red-500 font-bold text-xl ">Your Cart (0)</p>
         <img src="images/illustration-empty-cart.svg" alt="" class="my-3">
         <p class="text-custom_rose-400 text-xs md:text-sm font-bold text-center">Your added items will appear here
         </p>
@@ -68,7 +68,7 @@
         <div *ngFor="let recipe of selected()" class="self-start w-full ">
           <div class="grid grid-cols-6 ">
             <div class="col-span-5">
-              <span class="font-semibold">
+              <span class="font-semibold dark:text-black">
                 {{ recipe.name }}
               </span>
               <br />
@@ -96,12 +96,12 @@
           <hr class="w-full my-3" />
         </div>
         <div class="flex items-center justify-between w-full my-4">
-          <p>Order Total</p>
-          <span class="text-3xl font-bold mr-2">${{recipeService.totalPriceInCart()}}</span>
+          <p class="dark:text-black">Order Total</p>
+          <span class="text-3xl font-bold mr-2 dark:text-black">${{recipeService.totalPriceInCart()}}</span>
         </div>
         <div class="py-4 md:px-4 bg-custom_rose-50 flex justify-center items-center w-full rounded-md">
           <img src="images/icon-carbon-neutral.svg" alt="carbon neutral">
-          <span class=" font-semibold text-sm ml-2">
+          <span class=" font-semibold text-sm ml-2 dark:text-black">
             This is a <strong>Carbon-neutral</strong> Delivery</span>
         </div>
         <button class="w-full bg-custom_red-500 p-4 rounded-full text-white mb-4 md:mb-0 mt-6"
