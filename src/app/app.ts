@@ -11,12 +11,26 @@ import { RouterOutlet } from "@angular/router";
   styleUrl: "./app.scss",
 })
 export class App {
-  ngOnInit(): void {
-    const theme = localStorage.getItem("theme");
-    if (theme === "dark") {
+  constructor() {
+    // Check if the user prefers dark mode
+    const prefersDarkMode = window.matchMedia(
+      "(prefers-color-scheme: dark)"
+    ).matches;
+
+    // Apply the 'dark' class to <html> or <body> based on system preference
+    if (prefersDarkMode) {
       document.documentElement.classList.add("dark");
+    } else {
+      document.documentElement.classList.remove("dark");
     }
   }
+
+  // ngOnInit(): void {
+  //   const theme = localStorage.getItem("theme");
+  //   if (theme === "dark") {
+  //     document.documentElement.classList.add("dark");
+  //   }
+  // }
 
   protected readonly title = signal("03-product-list");
 }
