@@ -15,9 +15,9 @@
               <img [src]="recipe.image.desktop" alt="" class="desktop-image">
             </div>
             <div
-              class="cursor-pointer border border-solid border-custom_rose-400 p-2 -mt-5 rounded-full w-[60%] lg:w-[70%] text-center font-semibold flex items-center justify-center"
-              [ngClass]="{'hover:text-custom_red-500 ': !recipe.inBill,
-                'bg-custom_red-500 text-white': recipe.quantity != null && recipe.quantity > 0,'bg-white': recipe.quantity===0}"
+              class="cursor-pointer border border-solid border-custom_rose-400 p-2 -mt-5 rounded-full w-[60%] lg:w-[70%] text-center font-semibold flex items-center justify-center "
+              [ngClass]="{'hover:text-custom_red-500 hover:bg-red-100': !recipe.inBill,
+                'bg-custom_red-500 text-white hover:bg-red-500': recipe.quantity != null && recipe.quantity > 0,'bg-white': recipe.quantity===0}"
               (click)="changeBillStatus(recipe)">
               @if(!recipe.inBill){
               <img src="images/icon-add-to-cart.svg" alt="Add to Cart" class="mr-2">
@@ -104,7 +104,7 @@
           <span class=" font-semibold text-sm ml-2 dark:text-black">
             This is a <strong>Carbon-neutral</strong> Delivery</span>
         </div>
-        <button class="w-full bg-custom_red-500 p-4 rounded-full text-white mb-4 md:mb-0 mt-6"
+        <button class="w-full bg-custom_red-500 p-4 rounded-full text-white mb-4 md:mb-0 mt-6 hover:bg-red-500"
           (click)="confirmation()">Confirm Order</button>
         <app-dialog [(visible)]="modalVisible"></app-dialog>
         }
